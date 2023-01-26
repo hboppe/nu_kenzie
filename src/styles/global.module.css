@@ -1,6 +1,7 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: 0;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;;
 }
 
