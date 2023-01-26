@@ -1,10 +1,11 @@
 import styles from './style.module.css';
 import logo from '../../assets/logo.svg';
+import Font from 'react-font'
 
 function LandingPage({click}) {
     return (
-
-        <div className={styles.landingPage}>
+        <Font family='Nunito'>
+            <div className={styles.landingPage}>
             <div className={styles.landingPageContainer}>
                 <div className={styles.topContainer}>
                     <img src={logo} alt="Nu Kenzie logo" />
@@ -18,6 +19,8 @@ function LandingPage({click}) {
                 </div>
             </div>
         </div>
+        </Font>
+        
       
         
             

@@ -1,12 +1,22 @@
+import Form from "../Form";
 import Header from "../Header";
 import styles from './style.module.css'
 
 
 function Dashboard({click}){
     return (
-        <div className={styles.dashboardContainer}>
+        <>
             <Header click={click}/>
-        </div>
+
+            <main className={styles.mainContainer}>
+                <Form/>
+                <section className={styles.totalMoney}>
+
+                </section>
+            </main>
+
+        </>
+    
 
         
     )

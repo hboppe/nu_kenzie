@@ -6,6 +6,7 @@ function Header({click}) {
     function GoToHome(callback){
         callback(false)
     }
+    
     return (
         <header className={styles.headerContainer}>
             <nav className={styles.navContainer}>
