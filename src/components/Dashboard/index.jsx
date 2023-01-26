@@ -2,10 +2,10 @@ import Header from "../Header";
 import styles from './style.module.css'
 
 
-function Dashboard(){
+function Dashboard({click}){
     return (
         <div className={styles.dashboardContainer}>
-            <Header/>
+            <Header click={click}/>
         </div>
 
         

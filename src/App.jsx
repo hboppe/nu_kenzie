@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
 
-      {!start ? <LandingPage click={setStart}/> : <Dashboard/>}  
+      {!start ? <LandingPage click={setStart}/> : <Dashboard click={setStart}/>}  
 
     </div>
   )
