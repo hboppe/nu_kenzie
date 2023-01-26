@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import Dashboard from './components/Dashboard';
 import LandingPage from './components/LandingPage';
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [start, setStart] = useState(true); // alterar pra false 
 
   return (
     <div className="App">
-      <LandingPage/>
-      
+
+      {!start ? <LandingPage click={setStart}/> : <Dashboard/>}  
+
     </div>
   )
 }

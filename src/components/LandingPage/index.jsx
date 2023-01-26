@@ -1,7 +1,7 @@
 import styles from './style.module.css';
 import logo from '../../assets/logo.svg';
 
-function LandingPage() {
+function LandingPage({click}) {
     return (
 
         <div className={styles.landingPage}>
@@ -11,7 +11,7 @@ function LandingPage() {
                     <h1>Centralize control of your finances</h1>
                     <p>in a faster and secure way</p>
                 
-                    <button type='button'>Start</button>
+                    <button onClick={() => click(true)} type='button'>Start</button>
                 </div>
                 <div className={styles.bottomContainer}>
                 
