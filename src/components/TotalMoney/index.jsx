@@ -1,7 +1,7 @@
 import styles from './style.module.css';
 import Font from 'react-font';
 
-function TotalMoney(){
+function TotalMoney({list}){
     return  (
         <Font family='Nunito'>
             <section className={styles.totalMoneyContainer}>
@@ -9,7 +9,7 @@ function TotalMoney(){
                     <h3>Total amount:</h3>
                     <p>The total refers to the balance</p>
                 </div>
-                <span>$ 1.500</span>
+                <span>$ {list.reduce((acc, currentValue) => acc + currentValue.amount, 0)}</span>
             </section>
         </Font>
     )
