@@ -1,10 +1,22 @@
-import styles from './styles.modules.css'
+import styles from './style.module.css';
+import { MdDelete } from 'react-icons/md';
+import Font from 'react-font'
 
-function Card({transaction, amount, id}){
+function Card({transaction, amount, id, type}){
     return (
-        <li key={id}>
+
+        
+            < li className={`${styles.cardContainer} ${type==='deposit' && styles.depositType}`}>
             
-        </li>
+                <div className={styles.topContainer}>
+                    <h3>{transaction.toLowerCase()}</h3>
+                    <small className={styles.transactionType}>{type}</small>
+                </div>
+                <span className={styles.amount}>U$ {amount}</span>
+                <button id={id} className={styles.deleteButton}><MdDelete/></button>
+            
+            </li>
+        
     )
 }
 
