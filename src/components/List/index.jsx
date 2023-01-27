@@ -3,7 +3,7 @@ import noCard from '../../assets/NoCard.svg'
 import Font from 'react-font'
 import Card from '../Card';
 
-function List({list}){
+function List({list, setList}){
     return (
         
             <ul className={styles.listContainer}>
@@ -16,7 +16,7 @@ function List({list}){
                         <img src={noCard} alt="No cards image" />
                     </>)
                     :
-                    list.map((item) => <Card {...item} key={item.id}/>)
+                    list.map((item) => <Card {...{...item, setList}} key={item.id}/>)
                 }
                 
                 

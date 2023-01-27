@@ -5,7 +5,7 @@ import LandingPage from './components/LandingPage';
 
 
 function App() {
-  const [start, setStart] = useState(true); // alterar pra false 
+  const [start, setStart] = useState(false); // alterar pra false 
 
   return (
     <div className="App">

@@ -8,7 +8,7 @@ import Font from "react-font";
 
 
 function Dashboard({click}){
-    const [list, setList] = useState([{transaction: 'teste', amount: 34, type: 'expense', id: 'df3ade1e-bf8a-43b6-8513-634959ca5b86'}]);
+    const [list, setList] = useState([]);
 
     return (
         <>
@@ -19,7 +19,7 @@ function Dashboard({click}){
                         <Form setList={setList} list={list}/>
                         {list.length > 0 && <TotalMoney list={list}/>}
                     </div>
-                    <List list={list}/>
+                    <List list={list} setList={setList}/>
                 </main>
             </Font>
 
