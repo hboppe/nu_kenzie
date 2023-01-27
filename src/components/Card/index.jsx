@@ -15,8 +15,10 @@ function Card({transaction, amount, id, type, setList}){
                     <h3>{transaction.toLowerCase()}</h3>
                     <small className={styles.transactionType}>{type}</small>
                 </div>
-                <span className={styles.amount}>U$ {amount}</span>
-                <button className={styles.deleteButton} onClick={() => {deleteTransaction(id)}}><MdDelete/></button>
+                <div className={styles.amountButtonContainer}>
+                    <span className={styles.amount}>U$ {amount}</span>
+                    <button className={styles.deleteButton} onClick={() => {deleteTransaction(id)}}><MdDelete/></button>
+                </div>
             
             </li>
         
