@@ -15,19 +15,22 @@ function Form() {
 
                     <div className={styles.amountContainer}>
                         <label htmlFor="amount">Amount</label>
-                        <input type="number" name="amount" id="amount" />
+                        <div className={styles.inputAmountContainer}>
+                            <input type="number" name="amount" id="amount" />
+                            <span className={styles.dollarSymbol}>U$</span>
+                        </div>
                     </div>
 
-                    <div className={styles.amountTypeContainer}>
+                    <div className={styles.typeContainer}>
                         <label htmlFor="type">Type</label>
                         <select name="type" id="type" required>
-                            <option value selected disabled>Select an option</option>
                             <option value="deposit">Deposit</option>
                             <option value="expense">Expense</option>
                         </select>
                     </div>
-                    <button type='submit'>Add transaction</button>
                 </div>
+                <button type='submit'>Add transaction</button>
+
             </form>
         </Font>
         
