@@ -2,6 +2,15 @@ import styles from './style.module.css';
 import Font from 'react-font';
 
 function TotalMoney({list}){
+
+    function balance(list){
+        const totalDeposits = list.filter((transc) => transc.type === 'deposit').reduce((acc, currentValue) => acc + currentValue.amount, 0);
+
+        const totalExpenses = list.filter((transc) => transc.type === 'expense').reduce((acc, currentValue) => acc + currentValue.amount, 0);
+
+        return totalDeposits - totalExpenses;
+    }
+
     return  (
         <Font family='Nunito'>
             <section className={styles.totalMoneyContainer}>
@@ -9,7 +18,7 @@ function TotalMoney({list}){
                     <h3>Total amount:</h3>
                     <p>The total refers to the balance</p>
                 </div>
-                <span>$ {list.reduce((acc, currentValue) => acc + currentValue.amount, 0)}</span>
+                <span>$ {balance(list)}</span>
             </section>
         </Font>
     )

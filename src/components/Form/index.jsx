@@ -20,7 +20,6 @@ function Form({setList, list}) {
         setList((oldValues) => [...oldValues, newTransaction]);
         setTransaction('');
         setAmount('')
-        console.log(newTransaction)
         
     }
 
