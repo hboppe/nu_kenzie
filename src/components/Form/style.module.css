@@ -67,7 +67,7 @@
     width: 100%;
 }
 
-.formContainer button {
+.addTransactionButton {
     margin-top: 1.1875rem;
     width: 100%;
     background-color: var(--color-primary);
@@ -79,7 +79,7 @@
     transition: .5s ease-in-out;
 }
 
-.formContainer button:hover {
+.addTransactionButton:hover {
     background-color: var(--color-primary-2);
 }
 

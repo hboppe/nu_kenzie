@@ -2,11 +2,20 @@ import styles from './style.module.css'
 import Font from 'react-font';
 import { useState } from 'react';
 import {v4 as id} from 'uuid';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Form({setList, list}) {
     const [transaction, setTransaction] = useState('');
     const [amount, setAmount] = useState('');
     const [type, setType] = useState('')
+
+    const showErrorMessage = () => {
+        toast.error('Please select/fill up a required field', {
+            position: "top-right",
+            autoClose: 3000})
+    }
 
     function handleSubmit(event){
         event.preventDefault();
@@ -17,10 +26,19 @@ function Form({setList, list}) {
             type,
             id: id()
         }
-        setList((oldValues) => [...oldValues, newTransaction]);
-        setTransaction('');
-        setAmount('')
-        
+
+        const emptyInput = Object.values(newTransaction).filter(value => value === '')
+
+        if(emptyInput.length > 0){
+            
+            showErrorMessage()
+        } else {
+            setList((oldValues) => [...oldValues, newTransaction]);
+            setTransaction('');
+            setAmount('')
+            setType('')
+        }
+    
     }
 
     return (
@@ -43,14 +61,16 @@ function Form({setList, list}) {
                         </div>
                         <div className={styles.typeContainer}>
                             <label htmlFor="type">Type</label>
-                            <select name="type" id="type" required value={type} onInput={(event) => setType(event.target.value)}>
+                            <select  name="type" id="type" value={type} onChange={(event) => setType(event.target.value)}>
                                 {/* <option disabled value>Selecione</option> */}
+                                <option value="" disabled>Select a type</option>
                                 <option value="deposit">Deposit</option>
                                 <option value="expense">Expense</option>
                             </select>
                         </div>
                     </div>
-                    <button type='submit'>Add transaction</button>
+                    <button type='submit' className={styles.addTransactionButton}>Add transaction</button>
+                    <ToastContainer />
                 </Font>
 
             </form>
@@ -59,4 +79,5 @@ function Form({setList, list}) {
     )
 }
 
+{/* <select  name="type" id="type" required value={type} onChange={(event) => setType(event.target.value)}></select> */}
 export default Form;
