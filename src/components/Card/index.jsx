@@ -11,18 +11,18 @@ function Card({transaction, amount, id, type, setList, list}){
     return (
 
         
-            < li className={`${styles.cardContainer} ${type==='deposit' && styles.depositType}`}>
-            
-                <div className={styles.topContainer}>
-                    <h3>{transaction.toLowerCase()}</h3>
-                    <small className={styles.transactionType}>{type}</small>
-                </div>
-                <div className={styles.amountButtonContainer}>
-                    <span className={styles.amount}>U$ {amount}</span>
-                    <button className={styles.deleteButton} onClick={() => {deleteTransaction(id)}}><MdDelete/></button>
-                </div>
-            
-            </li>
+        < li className={`${styles.cardContainer} ${type==='deposit' && styles.depositType}`}>
+        
+            <div className={styles.topContainer}>
+                <h3>{transaction.toLowerCase()}</h3>
+                <small className={styles.transactionType}>{type}</small>
+            </div>
+            <div className={styles.amountButtonContainer}>
+                <span className={styles.amount}>U$ {amount}</span>
+                <button className={styles.deleteButton} onClick={() => {deleteTransaction(id)}}><MdDelete/></button>
+            </div>
+        
+        </li>
         
     )
 }

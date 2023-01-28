@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
 
-      {!start ? <LandingPage click={setStart}/> : <Dashboard click={setStart} setList={setList} list={list}/>}  
+      {!start ? <LandingPage click={setStart}/> : <Dashboard click={setStart} setList={setList} list={list}/>}   
 
     </div>
   )
