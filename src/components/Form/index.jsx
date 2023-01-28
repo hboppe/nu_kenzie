@@ -11,10 +11,11 @@ function Form({setList, list}) {
     const [amount, setAmount] = useState('');
     const [type, setType] = useState('')
 
-    const showErrorMessage = () => {
-        toast.error('Please select/fill up a required field', {
+    const showSuccessMessage = () => {
+        toast.success('A new transactin was added to your account', {
             position: "top-right",
-            autoClose: 3000})
+            autoClose: 3000
+        })
     }
 
     function handleSubmit(event){
@@ -27,18 +28,11 @@ function Form({setList, list}) {
             id: id()
         }
 
-        const emptyInput = Object.values(newTransaction).filter(value => value === '')
-
-        if(emptyInput.length > 0){
-            
-            showErrorMessage()
-        } else {
-            setList((oldValues) => [...oldValues, newTransaction]);
-            setTransaction('');
-            setAmount('')
-            setType('')
-        }
-    
+        setList((oldValues) => [...oldValues, newTransaction]);
+        setTransaction('');
+        setAmount('')
+        setType('')
+        showSuccessMessage()
     }
 
     return (
@@ -48,20 +42,20 @@ function Form({setList, list}) {
                 <Font family='Inter'>
                     <div className={styles.descriptionContainer}>
                         <label htmlFor="description">Description</label>
-                        <input type="text" name="description" id="description" placeholder="Add a description" value={transaction} onChange={(event) => setTransaction(event.target.value)}/>
+                        <input type="text" name="description" id="description" placeholder="Add a description" value={transaction} onChange={(event) => setTransaction(event.target.value)} required/>
                         <small>Ex: clothes shop</small>
                     </div>
                     <div className={styles.amountAndTypeContainer}>
                         <div className={styles.amountContainer}>
                             <label htmlFor="amount">Amount</label>
                             <div className={styles.inputAmountContainer}>
-                                <input type="number" name="amount" id="amount" value={amount} onChange={(event) => setAmount(Number(event.target.value))}/>
+                                <input type="number" name="amount" id="amount" value={amount} onChange={(event) => setAmount(Number(event.target.value))} required/>
                                 <span className={styles.dollarSymbol}>U$</span>
                             </div>
                         </div>
                         <div className={styles.typeContainer}>
                             <label htmlFor="type">Type</label>
-                            <select  name="type" id="type" value={type} onChange={(event) => setType(event.target.value)}>
+                            <select  name="type" id="type" value={type} onChange={(event) => setType(event.target.value)} required>
                                 {/* <option disabled value>Selecione</option> */}
                                 <option value="" disabled>Select a type</option>
                                 <option value="deposit">Deposit</option>
