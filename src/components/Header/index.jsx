@@ -4,8 +4,6 @@ import { useState } from 'react';
 
 function Header({click}) {
 
-    const [refreshPage, setRefreshPage] = useState(false);
-
     function GoToHome(callback){
         callback(false)
     }
