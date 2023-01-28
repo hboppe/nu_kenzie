@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-function Form({setList, list}) {
+function Form({setList, list, filter, setFilter}) {
     const [transaction, setTransaction] = useState('');
     const [amount, setAmount] = useState('');
     const [type, setType] = useState('')
@@ -28,7 +28,20 @@ function Form({setList, list}) {
             id: id()
         }
 
+        const transType = filter.find(trans => trans.type !== '')?.type;
+
+        if(JSON.stringify(list) === JSON.stringify(filter)){
+            setFilter([...list, newTransaction]);
+
+        } else if(transType === newTransaction.type){
+
+            setFilter([...filter, newTransaction]);
+
+        }
+
+
         setList((oldValues) => [...oldValues, newTransaction]);
+
         setTransaction('');
         setAmount('')
         setType('')
@@ -59,11 +72,13 @@ function Form({setList, list}) {
                         </div>
                         <div className={styles.typeContainer}>
                             <label htmlFor="type">Type</label>
+
                             <select  name="type" id="type" value={type} onChange={(event) => setType(event.target.value)} required>
-                                {/* <option disabled value>Selecione</option> */}
+
                                 <option value="" disabled>Select a type</option>
                                 <option value="deposit">Deposit</option>
                                 <option value="expense">Expense</option>
+                                
                             </select>
                         </div>
                     </div>

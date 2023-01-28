@@ -7,7 +7,6 @@
 .listTitle {
     font-size: var(--font-title-3);
     color: var(--color-grey-4);
-    margin-bottom: 1rem;
 }
 
 .listContainer h2 {
@@ -21,6 +20,29 @@
     width: 100%;
 }
 
+.titleButtonsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.filterButtonsContainer > button{
+    color: var(--color-grey-3);
+    background-color: var(--color-grey-2);
+    border: none;
+    padding: 0.5rem 0.625rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    margin-left: .4rem;
+}
+
+.filterButtonsContainer > button:hover {
+    background-color: var(--color-grey-3);
+    color: var(--color-grey-1);
+}
+
 @media (min-width: 768px){
     .listContainer {
         width: 560px;
@@ -28,4 +50,14 @@
         margin: 0 auto;
 
     }
+
+    .filterButtonsContainer > button {
+    
+        padding: 0.625rem 0.9375rem;
+        margin-left: 1rem;
+
+    }    
+
+    
+
 }
