@@ -25,3 +25,7 @@
     background-color: var(--color-grey-3);
     color: var(--color-grey-1);
 }
+
+.logo{
+    cursor: pointer;
+}
