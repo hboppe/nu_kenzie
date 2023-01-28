@@ -7,8 +7,7 @@ import { useState } from "react";
 import Font from "react-font";
 
 
-function Dashboard({click}){
-    const [list, setList] = useState([]);
+function Dashboard({click, setList, list}){
 
     return (
         <>

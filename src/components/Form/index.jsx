@@ -33,7 +33,11 @@ function Form({setList, list}) {
         setAmount('')
         setType('')
         showSuccessMessage()
+
     }
+
+    localStorage.setItem('@NuKenzie: transactions', JSON.stringify(list));
+
 
     return (
         

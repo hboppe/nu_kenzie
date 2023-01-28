@@ -2,9 +2,11 @@ import styles from './style.module.css';
 import { MdDelete } from 'react-icons/md';
 import Font from 'react-font'
 
-function Card({transaction, amount, id, type, setList}){
+function Card({transaction, amount, id, type, setList, list}){
     function deleteTransaction (transactionId){
         setList((oldValues) => [...oldValues.filter(transc => transc.id !== transactionId)])
+        localStorage.setItem('@NuKenzie: transactions', JSON.stringify(list));
+
     }
     return (
 

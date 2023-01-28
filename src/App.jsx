@@ -5,12 +5,16 @@ import LandingPage from './components/LandingPage';
 
 
 function App() {
-  const [start, setStart] = useState(false); // alterar pra false 
+  const [start, setStart] = useState(false); 
+
+  const localStorage = JSON.parse(window.localStorage.getItem('@NuKenzie: transactions'));
+
+  const [list, setList] = useState(localStorage || []);
 
   return (
     <div className="App">
 
-      {!start ? <LandingPage click={setStart}/> : <Dashboard click={setStart}/>}  
+      {!start ? <LandingPage click={setStart}/> : <Dashboard click={setStart} setList={setList} list={list}/>}  
 
     </div>
   )

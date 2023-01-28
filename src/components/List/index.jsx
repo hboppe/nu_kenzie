@@ -16,7 +16,7 @@ function List({list, setList}){
                         <img src={noCard} alt="No cards image" />
                     </>)
                     :
-                    list.map((item) => <Card {...{...item, setList}} key={item.id}/>)
+                    list.map((item) => <Card {...{...item, setList, list}} key={item.id}/>)
                 }
                 
                 
