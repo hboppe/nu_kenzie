@@ -5,8 +5,15 @@ import Card from '../Card';
 import { useState } from 'react';
 
 function List({list, setList, setFilter, filter}){
+    const [allButton, setAllButton] = useState(true);
+    const [depositsButton, setDepositsButton] = useState(false);
+    const [expenseButton, setExpensesButton] = useState(false);
+    const [selectedFilter, setSelectedFilter] = useState(1);
 
-    function handleFilter(filterName, elemento){
+
+    function handleFilter(filterName, id){
+        console.log(selectedFilter)
+
 
         if(filterName === 'all'){
             setFilter([...list])
@@ -17,7 +24,14 @@ function List({list, setList, setFilter, filter}){
             setFilter([...filteredList])
         }
 
+        handleFilterSelection(id)
+        console.log(selectedFilter)
     }
+
+    function handleFilterSelection(id){
+        setSelectedFilter(id);
+    }
+   
 
     return (
         
@@ -26,9 +40,9 @@ function List({list, setList, setFilter, filter}){
                 <div className={styles.titleButtonsContainer}>
                     <h3 className={styles.listTitle}>Account activity</h3>
                     <div className={styles.filterButtonsContainer}>
-                        <button className={styles.allTranscButton} onClick={(event) => handleFilter('all', event.target)} >All</button>
-                        <button className={styles.depositsButton} onClick={(event) => handleFilter('deposit', event.target)} data-id='deposit' >Deposits</button>
-                        <button className={styles.expensesButton} onClick={() => handleFilter('expense')} >Expenses</button>
+                        <button className={selectedFilter === 1 ?  styles.selectedFilterButton : styles.nonSelectedButton} onClick={(event) => handleFilter('all', 1)} >All</button>
+                        <button className={selectedFilter === 2 ?  styles.selectedFilterButton : styles.nonSelectedButton} onClick={(event) => handleFilter('deposit', 2)} data-id='deposit' >Deposits</button>
+                        <button className={selectedFilter === 3 ?  styles.selectedFilterButton : styles.nonSelectedButton} onClick={() => handleFilter('expense', 3)} >Expenses</button>
                     </div>
                 </div>
 
@@ -49,3 +63,7 @@ function List({list, setList, setFilter, filter}){
 }
 
 export default List;
+
+{/* <button className={`${styles.allTranscButton} ${selectedFilter === 1 && styles.selectedFilterButton }`} onClick={(event) => handleFilter('all', 1)} >All</button>
+                        <button className={`${styles.depositsButton} ${selectedFilter === 2 && styles.selectedFilterButton}`} onClick={(event) => handleFilter('deposit', 2)} data-id='deposit' >Deposits</button>
+                        <button className={styles.expensesButton} onClick={() => handleFilter('expense')} >Expenses</button> */}

@@ -28,8 +28,6 @@
 }
 
 .filterButtonsContainer > button{
-    color: var(--color-grey-3);
-    background-color: var(--color-grey-2);
     border: none;
     padding: 0.5rem 0.625rem;
     border-radius: 8px;
@@ -38,9 +36,24 @@
     margin-left: .4rem;
 }
 
-.filterButtonsContainer > button:hover {
+.nonSelectedButton {
+    color: var(--color-grey-3);
+    background-color: var(--color-grey-2);
+
+}
+
+.nonSelectedButton:hover {
     background-color: var(--color-grey-3);
     color: var(--color-grey-1);
+}
+
+.selectedFilterButton{
+    background-color: var(--color-primary);
+    color: var(--color-grey-0);
+}
+
+.selectedFilterButton:hover{
+    background-color: var(--color-primary-2);
 }
 
 @media (min-width: 768px){
