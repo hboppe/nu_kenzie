@@ -23,7 +23,7 @@ function Form({setList, list, filter, setFilter}) {
 
         const newTransaction = {
             transaction,
-            amount, 
+            amount: +amount.toFixed(2), 
             type,
             id: id()
         }
@@ -60,14 +60,14 @@ function Form({setList, list, filter, setFilter}) {
                     <div className={styles.descriptionContainer}>
                         <label htmlFor="description">Description</label>
                         <input type="text" name="description" id="description" placeholder="Add a description" value={transaction} onChange={(event) => setTransaction(event.target.value)} required autoComplete='off'/>
-                        <small>Ex: clothes shop</small>
+                        <small>Ex: Rent</small>
                     </div>
                     <div className={styles.amountAndTypeContainer}>
                         <div className={styles.amountContainer}>
                             <label htmlFor="amount">Amount</label>
                             <div className={styles.inputAmountContainer}>
                                 <input type="number" name="amount" id="amount" value={amount} onChange={(event) => setAmount(Number(event.target.value))} required autoComplete='off'/>
-                                <span className={styles.dollarSymbol}>U$</span>
+                                <span className={styles.dollarSymbol}>US$</span>
                             </div>
                         </div>
                         <div className={styles.typeContainer}>

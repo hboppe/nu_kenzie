@@ -8,7 +8,7 @@ function TotalMoney({list}){
 
         const totalExpenses = list.filter((transc) => transc.type === 'expense').reduce((acc, currentValue) => acc + currentValue.amount, 0);
 
-        return totalDeposits - totalExpenses;
+        return Number(totalDeposits) - Number(totalExpenses);
     }
 
     return  (
