@@ -28,8 +28,6 @@ function Form({setList, list, filter, setFilter}) {
             id: id()
         }
 
-        console.log(newTransaction)
-
         const transType = filter.find(trans => trans.type !== '')?.type;
 
         if(JSON.stringify(list) === JSON.stringify(filter)){
