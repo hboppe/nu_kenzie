@@ -4,11 +4,14 @@ import Font from 'react-font';
 function TotalMoney({list}){
 
     function balance(list){
+        
         const totalDeposits = list.filter((transc) => transc.type === 'deposit').reduce((acc, currentValue) => acc + currentValue.amount, 0);
 
         const totalExpenses = list.filter((transc) => transc.type === 'expense').reduce((acc, currentValue) => acc + currentValue.amount, 0);
 
-        return Number(totalDeposits) - Number(totalExpenses);
+        const totalMoney = (totalDeposits - totalExpenses).toFixed(2)
+
+        return totalMoney;
     }
 
     return  (

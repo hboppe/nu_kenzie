@@ -12,8 +12,6 @@ function List({list, setList, setFilter, filter}){
 
 
     function handleFilter(filterName, id){
-        console.log(selectedFilter)
-
 
         if(filterName === 'all'){
             setFilter([...list])
@@ -25,7 +23,6 @@ function List({list, setList, setFilter, filter}){
         }
 
         handleFilterSelection(id)
-        console.log(selectedFilter)
     }
 
     function handleFilterSelection(id){

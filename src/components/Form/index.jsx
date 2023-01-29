@@ -23,10 +23,12 @@ function Form({setList, list, filter, setFilter}) {
 
         const newTransaction = {
             transaction,
-            amount: +amount.toFixed(2), 
+            amount: +(amount.toFixed(2)), 
             type,
             id: id()
         }
+
+        console.log(newTransaction)
 
         const transType = filter.find(trans => trans.type !== '')?.type;
 
